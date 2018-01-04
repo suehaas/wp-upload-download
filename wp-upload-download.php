@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       WordPress Upload Download
  * Plugin URI:        https://github.com/suehaas/wp-upload-download
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       A simple plugin that allows admins to upload files and for users to download them from a page on your WordPress site.
  * Version:           1.0.0
  * Author:            Sue Haas
  * Author URI:        http://www.appignition.com/
