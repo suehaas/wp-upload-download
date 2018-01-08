@@ -59,46 +59,52 @@ class Wp_Upload_Download_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+     public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Wp_Upload_Download_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Wp_Upload_Download_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
+          /**
+           * This function is provided for demonstration purposes only.
+           *
+           * An instance of this class should be passed to the run() function
+           * defined in Wp_upload-download_Loader as all of the hooks are defined
+           * in that particular class.
+           *
+           * The Wp_upload-download_Loader will then create the relationship
+           * between the defined hooks and the functions defined in this
+           * class.
+         */
+         if ( 'settings_page_wp-upload-download' == get_current_screen() -> id ) {
+             // CSS stylesheet for Color Picker
+             wp_enqueue_style( 'wp-color-picker' );
+             wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-upload-download-admin.css', array( 'wp-color-picker' ), $this->version, 'all' );
+         }
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-upload-download-admin.css', array(), $this->version, 'all' );
+    }
 
-	}
+    /**
+     * Register the JavaScript for the admin area.
+     *
+     * @since    1.0.0
+     */
+    public function enqueue_scripts() {
 
-	/**
-	 * Register the JavaScript for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
+        /**
+         * This function is provided for demonstration purposes only.
+         *
+         * An instance of this class should be passed to the run() function
+         * defined in Wp_upload-download_Loader as all of the hooks are defined
+         * in that particular class.
+         *
+         * The Wp_upload-download_Loader will then create the relationship
+         * between the defined hooks and the functions defined in this
+         * class.
+         */
+        if ( 'settings_page_wp-upload-download' == get_current_screen() -> id ) {
+            wp_enqueue_media();
+            wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-upload-download-admin.js', array( 'jquery', 'wp-color-picker' ), $this->version, false );
+        }
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Wp_Upload_Download_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Wp_Upload_Download_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
+    }
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-upload-download-admin.js', array( 'jquery' ), $this->version, false );
-
-	}
 
 
 /**
