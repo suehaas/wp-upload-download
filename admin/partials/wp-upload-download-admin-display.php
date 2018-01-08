@@ -36,10 +36,6 @@
         $jquery_cdn = $options['jquery_cdn'];
         $cdn_provider = $options['cdn_provider'];
 
-        $login_logo = wp_get_attachment_image_src( $login_logo_id, 'thumbnail' );
-        $login_logo_url = $login_logo[0];
-
-
     ?>
 
     <?php
@@ -97,31 +93,8 @@
                 </fieldset>
     </fieldset>
 
-    <!-- Login page customizations -->
+    <?php submit_button(__('Save all changes', $this->plugin_name), 'primary','submit', TRUE); ?>
 
-    <h2 class="nav-tab-wrapper"><?php _e('Login customization', $this->plugin_name);?></h2>
-
-        <p><?php _e('Add logo to login form change buttons and background color', $this->plugin_name);?></p>
-
-        <!-- add your logo to login -->
-            <fieldset>
-                <legend class="screen-reader-text"><span><?php esc_attr_e('Login Logo', $this->plugin_name);?></span></legend>
-                <label for="<?php echo $this->plugin_name;?>-login_logo">
-                    <input type="hidden" id="login_logo_id" name="<?php echo $this->plugin_name;?>[login_logo_id]" value="<?php echo $login_logo_id; ?>" />
-                    <input id="upload_login_logo_button" type="button" class="button" value="<?php _e( 'Upload Logo', $this->plugin_name); ?>" />
-                    <span><?php esc_attr_e('Login Logo', $this->plugin_name);?></span>
-                </label>
-                <div id="upload_logo_preview" class="wp_upload-download-upload-preview <?php if(empty($login_logo_id)) echo 'hidden'?>">
-                    <img src="<?php echo $login_logo_url; ?>" />
-                    <button id="wp_upload-download-delete_logo_button" class="wp_upload-download-delete-image">X</button>
-                </div>
-            </fieldset>
-
-
-
-        <?php submit_button(__('Save all changes', $this->plugin_name), 'primary','submit', TRUE); ?>
-
- </form>
-
+    </form>
 
 </div>
